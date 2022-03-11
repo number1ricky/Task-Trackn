@@ -9,32 +9,24 @@ import { FaSalesforce } from 'react-icons/fa'
 // import About from './components/About'
 
 const App = () => {
-  //write java in here for dynamic
-  const you = 'userPoss'
   const funQ = false
   const titleApp = 'Task Tracker Application'
   const [showAddTask, setShowAddTask] = useState(false)
-  const [tasks, setTasks] = useState([
-    {
-        id: 1,
-        text: 'Doc Appt',
-        day: 'Feb 5th at 2:30',
-        reminder: true,
-    },
-    {
-        id: 2,
-        text: 'Shopping For Flynn',
-        day: 'Asap',
-        reminder: false,
-    },
-    {
-        id: 3,
-        text: 'Wic',
-        day: 'April 7th at 10:00am',
-        reminder: true,
-    },
-    //   setTasks([...tasks, {}])
-])
+  const [tasks, setTasks] = useState([])
+
+  useEffect(() => {
+    const getTasks = async () => {
+      const tasksFromServer = await fetchTasks()
+      setTasks(tasksFromServer)
+    }
+    getTasks()
+  }, [])
+  //fetch tasks
+  const fetchTasks = async () => {
+    const res = await fetch('http://localhost:3001/tasks')
+    const data = await res.json()
+    return data
+  }
 
 //Add task
 const addTask = (task) => {

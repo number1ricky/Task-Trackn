@@ -1,0 +1,21 @@
+{
+  "tasks": [{
+    "id": 1,
+    "text": "'Study building Pong with C'",
+    "day": "'after I finish this'",
+    "reminder": true
+},
+{
+    "id": 2,
+    "text": "'Shopping For Flynn'",
+    "day": "'Asap, he needs baby snacks'",
+    "reminder": false
+},
+{
+    "id": 3,
+    "text": "'apply to jobs'",
+    "day": "'march 11th 2020'",
+    "reminder": true
+}
+  ]
+}
