@@ -2,11 +2,11 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
-// import Footer from './components/Footer'
+import Footer from './components/Footer'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 import { FaSalesforce } from 'react-icons/fa'
-// import About from './components/About'
+import About from './components/About'
 
 const App = () => {
   const funQ = false
@@ -91,30 +91,33 @@ const deleteTask = async (id) => {
   return (
     <Router>
       <div className='appContainer'>
-
-        <Header title={titleApp} onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
-        {showAddTask && <AddTask onAdd={addTask} />}
-
-       {/* <h1>Below you can have fun with Tasks</h1> */}
-
-        {tasks.length > 0 ? <Tasks tasks={tasks} onDelete=
-        {deleteTask} onToggle={toggleReminder}/> : 'no tasks :)' }
-
-        <h2>Made by Richard Brown {funQ ? 'yes' : ''} </h2>
-
+      <h2>Made by Richard Brown {funQ ? 'yes' : ''} </h2>
+        <Header title={titleApp} 
+        onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
+ <Routes>
+          <Route
+            path='/'
+            element={
+              <>
+                {showAddTask && <AddTask onAdd={addTask} />}
+                {tasks.length > 0 ? (
+                  <Tasks
+                    tasks={tasks}
+                    onDelete={deleteTask}
+                    onToggle={toggleReminder}
+                  />
+                ) : (
+                  'No Tasks To Show'
+                )}
+              </>
+            }
+          />
+          <Route path='/about' element={<About />} />
+        </Routes>
+        <Footer />
       </div>
     </Router>
   )
 }
-
-// class App extends React.Component {
-//   render() {
-//     return (
-//       <div className='appClassContainer'>
-//     <h1>Hello from a class.</h1>
-//     </div>
-//     )
-//   }
-// }
 
 export default App
