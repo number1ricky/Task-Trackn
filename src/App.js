@@ -11,7 +11,7 @@ import About from './components/About'
 const App = () => {
   const funQ = false
   const titleApp = 'Task Tracker Application'
-  const [showAddTask, setShowAddTask] = useState(true)
+  const [showAddTask, setShowAddTask] = useState(false)
   const [tasks, setTasks] = useState([])
 
   //get tasks
