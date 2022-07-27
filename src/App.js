@@ -91,10 +91,10 @@ const deleteTask = async (id) => {
   return (
     <Router>
       <div className='appContainer'>
-      <h2>Made by Richard Brown {funQ ? 'yes' : ''} </h2>
-        <Header title={titleApp} 
-        onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
- <Routes>
+        <h2>Made by Richard Brown {funQ ? 'yes' : ''} </h2>
+          <Header title={titleApp} 
+          onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
+        <Routes>
           <Route
             path='/'
             element={
